@@ -1,0 +1,48 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.login-button{
+  display:flex;
+  justify-content: flex-end;
+  margin: 20px;
+
+}
+
+.nav-section{
+  display:flex;
+  justify-content: center;
+  width:100%
+}
+
+.menu-list{
+  flex:1;  
+  display:flex;
+  justify-content:center;
+  list-style-type: none;
+  gap:24px;
+  margin:5;
+  padding:0;
+}
+
+.menu-list li{
+  padding: 10px;
+}
+
+.menu-area{
+  display: flex;
+  justify-content: center;
+}
+
+.search-area{
+  display: flex;
+  align-items: center;
+  padding-right:40px;       
+  
+}
+
+.search-area input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-bottom:2px solid #333;
+}
