@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,6 +7,7 @@ import ProductAll from './page/ProductAll.jsx';
 import Login from './page/Login.jsx';
 import ProductDetail from './page/ProductDetail.jsx';
 import Navbar from './component/Navbar.jsx';
+import PrivateRoute from './route/PrivateRoute.jsx';
 
 //1.전체상품페이지, 로그인, 상품상세페이지
 //1.1 nav 바 : 항상 그대로
@@ -20,19 +21,22 @@ import Navbar from './component/Navbar.jsx';
 //7. 상품을 검색할 수 있다.
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const[authenticate,setAuthenticate]=useState(false) //true면 로그인, false면 로그인 안됨
+  useEffect(()=>{
+    console.log("Aaaa", authenticate)
+  }, [authenticate])
   return (
     <div>
-      <Navbar/>
+
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       <Routes>
         <Route path="/" element={<ProductAll />} /> 
-      </Routes>
-      <Routes>
-        <Route path="/login" element={<Login />} /> 
-      </Routes>
-      <Routes>
-        <Route path="/product/:id" element={<ProductDetail />} /> 
+      
+      
+        <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>} /> 
+     
+      
+        <Route path="/product/:id" element={<PrivateRoute authenticate = {authenticate} />} /> 
       </Routes>
     </div>
   )
