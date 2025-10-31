@@ -10,7 +10,7 @@ import Navbar from './component/Navbar.jsx';
 import PrivateRoute from './route/PrivateRoute.jsx';
 
 //1.전체상품페이지, 로그인, 상품상세페이지
-//1.1 nav 바 : 항상 그대로
+//1-1 nav 바 : 항상 그대로
 //2. 전체 상품페이지 : 전체상품 볼 수 있다.
 //3. 로그인 버튼을 누르면 : 로그인 페이지 나온다.
 //3. 상품디테일을 눌렀으나, 로그인이 안되어있을 경우->로그인 페이지가 먼저 나온다.
@@ -27,7 +27,6 @@ function App() {
   }, [authenticate])
   return (
     <div>
-
       <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       <Routes>
         <Route path="/" element={<ProductAll />} /> 

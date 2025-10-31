@@ -15,10 +15,17 @@ const Navbar = () => {
         'Sale',
         '지속가능성'
     ];
-const navigate = useNavigate()
-const goToLogin = () => {
-    navigate("/login")
-}
+    const navigate = useNavigate()
+    const goToLogin = () => {
+        navigate("/login")
+    }
+    const search = (event) => {
+        if(event.key === "Enter"){
+            let keyword = event.target.value; //value안데 입력한 검색어 읽어와서
+            navigate(`/?q=${keyword}`)  //url을 바꿔준다.
+        }
+    }
+
   return (
     <div>
         <div>
@@ -28,8 +35,7 @@ const goToLogin = () => {
             </div>
         </div>
         <div className='nav-logo'>
-            <img 
-            
+            <img             
             width={100}
             src='https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg'
             />
@@ -42,7 +48,7 @@ const goToLogin = () => {
             </ul>
             <div className='search-area'>
                 <FontAwesomeIcon icon={faSearch} />
-                <input type='text' placeholder='제품검색' />
+                <input type='text' placeholder='제품검색' onKeyDown = {(event) => search(event)} />
             </div>
         </div>
     </div>

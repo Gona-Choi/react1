@@ -8,9 +8,8 @@ const Login = ({setAuthenticate}) => {
     const navigate = useNavigate();
     const loginUser = (event) => {
         event.preventDefault();
-	console.log("login user function issue")
-    setAuthenticate(true);
-    navigate("/")} //로그인 됐을 때 메인 페이지로 돌아가기
+	    setAuthenticate(true);
+        navigate("/")} //로그인 됐을 때 메인 페이지로 돌아가기
   return (
     <Container>
         <Form onSubmit = {(event)=>loginUser(event)}> 
